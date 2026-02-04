@@ -4,23 +4,29 @@ using System.Text;
 
 namespace AdventureGame.core
 {
-    public class Items
+    public abstract class Items
     {
-    public Items()
+        public abstract void Use(Player player);
+        public Items()
         {
 
         }
         public class Potion : Items
         {
-            public void Use(ICharacter.Player player)
+            public override void Use(Player player) //use upon contact
             {
-                player.IncreaseHealth(20);
+                player.Heal();
             }
 
-
-            public class Weapon : Items
+        }
+        public class Weapon : Items
         {
-            int atkMulti = 10;
+            public override void Use(Player player) //use upon contact
+            {
+                player.Atk *=5;
+                Console.WriteLine("Player picked up a new weapon. Your attack has increased!");
+            }
+
         }
     }
 }

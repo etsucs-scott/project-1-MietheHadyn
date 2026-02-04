@@ -9,6 +9,8 @@ namespace AdventureGame.core
         public Maze()
         {
             int[,] Maze = new int[10, 10];
+
+            //program walls on all edges, insides ranomized
         }
     }
 }
