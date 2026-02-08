@@ -40,11 +40,13 @@
             if (Health < 150)
             {
                 Health += 20;
+                Console.WriteLine($"Player healed 20 health! Current health: {Health}");
 
             }
             else if (Health == 150)
             {
-                Console.WriteLine("Player health at max!, item stored"); //maybe don't store item
+                Console.WriteLine("Player health at max!, item stored"); 
+                Inventory.Add("Potion");
             }
         }
 
@@ -67,7 +69,6 @@
         }
        
     }
-
 
 
 }
