@@ -4,7 +4,9 @@
 
 
 //temp call combat to test (remove later)
-Combat(new Player(10), new Monster(10));
+Maze mazeInstance = new Maze();
+mazeInstance.MazeGenerator();
+Console.WriteLine(mazeInstance);
 void Main(string[] args)
 {
     //intro text/lore??

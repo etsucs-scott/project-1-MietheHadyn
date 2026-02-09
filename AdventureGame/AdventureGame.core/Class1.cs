@@ -40,7 +40,9 @@
             if (Health < 150)
             {
                 Health += 20;
+                Inventory.Add("Potion");
                 Console.WriteLine($"Player healed 20 health! Current health: {Health}");
+                Inventory.Remove("Potion");
 
             }
             else if (Health == 150)
@@ -49,8 +51,12 @@
                 Inventory.Add("Potion");
             }
         }
+        //CODE THE PLAYER MOVEMENT AND CHECKS IN HERE
 
-
+        public override string ToString()
+        {
+            return "!";
+        }
     }
     public class Monster : ICharacter
     {
@@ -67,7 +73,11 @@
             //math for atk damage
              target.Health -= this.Atk;
         }
-       
+
+        public override string ToString()
+        {
+            return $"M";
+        }
     }
 
 

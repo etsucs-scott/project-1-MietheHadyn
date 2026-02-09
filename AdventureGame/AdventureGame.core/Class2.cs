@@ -18,6 +18,10 @@ namespace AdventureGame.core
                 player.Heal();
             }
 
+            public override string ToString()
+            {
+                return $"p";
+            }
         }
         public class Weapon : Items
         {
@@ -27,6 +31,10 @@ namespace AdventureGame.core
                 Console.WriteLine("Player picked up a new weapon. Your attack has increased!");
             }
 
+            public override string ToString()
+            {
+                return $"t";
+            }
         }
     }
 }
