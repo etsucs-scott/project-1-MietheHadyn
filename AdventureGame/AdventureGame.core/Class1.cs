@@ -29,6 +29,8 @@
 
         }
 
+        public (int, int) PlayerLocation { get; set; }
+
         public void Attack(ICharacter target)
         {
             //math for atk damage

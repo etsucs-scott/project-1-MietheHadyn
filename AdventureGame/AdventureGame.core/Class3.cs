@@ -2,23 +2,18 @@
 
 namespace AdventureGame.core
 {
-    public enum CellType  //come back to change the enum into something like a string or char, but for now this'll do
-    {
-        Empty = 0,
-        Wall = 1,
-        Player = 2,
-        Monster = 3,
-        Item = 4,
-        Exit = 8
-    }
+
 
     public class Maze
     {
-        public int[,] maze { get; set; }
+        public object[,] maze { get; set; }
+        public string wall = "#";
+        public string exit = "@";
+
         private Random rand = new Random();
         public Maze()
         {
-            maze = new int[10, 10];
+            maze = new object[10, 10];
 
         }
 
@@ -34,44 +29,53 @@ namespace AdventureGame.core
                     {
                         for (int w = 0; w < Wallcnt; w++)
                         {
-                            maze[i, j] = (int)CellType.Wall; //wall limit # of walls to lessen likelihood of blockages
+                            maze[i, j] = wall; //walls
                             //doesn't seem to be working, ask teacher
                         }
 
                     }
                     else
                     {
-                        maze[i, j] = rand.Next(0, 2); //randomly places walls inside maze
+                        maze[i, j] = null; //randomly places walls inside maze
+                        //limit # of walls to lessen likelihood of blockages
                     }
                 }
             }
         }
 
+        public Player Player { get; set; }
         public void placeThings(int monsterCnt = 2, int itemCnt = 3)
         {
             //place player first, then monsters, then items
 
             var (px, py) = FindEmptyCell();
-            maze[px, py] = (int)CellType.Player;
+            maze[px, py] = new Player(10);  //place player 
+            Player.PlayerLocation = (px, py); //set player location
 
 
             for (int m = 0; m < monsterCnt; m++)
             {
                 var (mx, my) = FindEmptyCell();
-                maze[mx, my] = (int)CellType.Monster;
+                maze[mx, my] = new Monster(10);  //place monster
             }
 
 
             for (int k = 0; k < itemCnt; k++)
             {
                 var (ix, iy) = FindEmptyCell();
-                maze[ix, iy] = (int)CellType.Item;
+                maze[ix, iy] = new Items.Potion();
+            }
+
+            for (int w = 0; w < itemCnt; w++)
+            {
+                var (ix, iy) = FindEmptyCell();
+                maze[ix, iy] = new Items.Weapon();
             }
 
             for (int e = 0; e < 1; e++)
             {
                 var (ex, ey) = FindEmptyCell();
-                maze[ex, ey] = (int)CellType.Exit;
+                maze[ex, ey] = exit;
             }
 
         }
@@ -83,7 +87,7 @@ namespace AdventureGame.core
             {
                 x = rand.Next(1, 9); //avoid edges
                 y = rand.Next(1, 9);
-            } while (maze[x, y] != (int)CellType.Empty); //keep looking until empty cell
+            } while (maze[x, y] != null); //keep looking until empty cell
             return (x, y);
         }
         public override string ToString()
@@ -93,12 +97,78 @@ namespace AdventureGame.core
             {
                 for (int j = 0; j < 10; j++)
                 {
-                    sb.Append(maze[i, j]);
+                    if (maze[i, j] is null)
+                    {
+                        sb.Append("  ");
+                        continue;
+
+                    }
+                    Type type = maze[i, j].GetType();
+                    if (type.Equals(typeof(Player)))
+                    {
+                        sb.Append((Player)maze[i, j]); //display character
+                    }
+                    else if (type.Equals(typeof(Monster)))
+                    {
+                        sb.Append((Monster)maze[i, j]);
+                    }
+                    else if (type.Equals(typeof(Items.Potion)))
+                    {
+                        sb.Append((Items.Potion)maze[i, j]);
+                    }
+                    else if (type.Equals(typeof(Items.Weapon)))
+                    {
+                        sb.Append((Items.Weapon)maze[i, j]);
+                    }
+                    else
+                    {
+                        sb.Append(maze[i, j]); //display character
+                    }
                     sb.Append(' ');
                 }
                 sb.AppendLine();
             }
             return sb.ToString();
+        }
+
+
+
+        public void MovePlayer(Player player, int dx, int dy)
+        {
+            //find player position
+            int px = -1, py = -1;
+            for (int i = 0; i < 10; i++)
+            {
+                for (int j = 0; j < 10; j++)
+                {
+                    if (maze[i, j] is Player)
+                    {
+                        px = i;
+                        py = j;
+                        break;
+                    }
+                }
+                if (px != -1) break;
+            }
+        
+         //get movement input from player and move them accordingly in console
+
+        
+
+            int newX = px + dx;
+            int newY = py + dy;
+
+            //check bounds and walls
+            if (newX < 0 || newX >= 10 || newY < 0 || newY >= 10 || maze[newX, newY] is string)
+            {
+                Console.WriteLine("Cannot move there!");
+                return;
+            }
+            //move player
+            maze[px, py] = null; //clear old position
+            maze[newX, newY] = player; //move to new position
+
+            //check for interactions
         }
     }
 }

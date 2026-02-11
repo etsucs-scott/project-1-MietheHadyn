@@ -3,11 +3,13 @@
 // See https://aka.ms/new-console-template for more information
 
 
-//temp call combat to test (remove later)
+
 Maze mazeInstance = new Maze();
 mazeInstance.MazeGenerator();
 mazeInstance.placeThings();
 Console.WriteLine(mazeInstance);
+
+//mazeInstance.MovePlayer();
 void Main(string[] args)
 {
     //intro text/lore??
@@ -58,6 +60,30 @@ void Combat(Player player, Monster monster)
         monster.Attack(player);
         Console.WriteLine($"Monster attacks for {monster.Atk}!");
         Console.WriteLine($"Player health is now at {player.Health}");
-    }
+        }
+
+
     
+}
+
+ void HandleInput(Player player, string input, Maze maze)
+{
+    switch (input.ToLower())
+    {
+        case "w":
+            maze.MovePlayer(player, -1, 0); //up
+            break;
+        case "s":
+            maze.MovePlayer(player, 1, 0); //down
+            break;
+        case "a":
+            maze.MovePlayer(player, 0, -1); //left
+            break;
+        case "d":
+            maze.MovePlayer(player, 0, 1); //right
+            break;
+        default:
+            Console.WriteLine("Invalid input! Use W/A/S/D to move.");
+            break;
+    }
 }
