@@ -6,6 +6,7 @@
 //temp call combat to test (remove later)
 Maze mazeInstance = new Maze();
 mazeInstance.MazeGenerator();
+mazeInstance.placeThings();
 Console.WriteLine(mazeInstance);
 void Main(string[] args)
 {
