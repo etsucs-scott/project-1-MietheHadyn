@@ -30,13 +30,13 @@ namespace AdventureGame.core
                         for (int w = 0; w < Wallcnt; w++)
                         {
                             maze[i, j] = wall; //walls
-                            //doesn't seem to be working, ask teacher
+                            
                         }
 
                     }
                     else
                     {
-                        maze[i, j] = null; //randomly places walls inside maze
+                        maze[i, j] = null; 
                         //limit # of walls to lessen likelihood of blockages
                     }
                 }
@@ -44,32 +44,48 @@ namespace AdventureGame.core
         }
 
         public Player Player { get; set; }
-        public void placeThings(int monsterCnt = 2, int itemCnt = 3)
+        public void placeThings(int monsterCnt = 2, int itemCnt = 3, int wallCnt = 8)
         {
             //place player first, then monsters, then items
 
             var (px, py) = FindEmptyCell();
-            maze[px, py] = new Player(10);  //place player 
-            Player.PlayerLocation = (px, py); //set player location
+            var playerObj = new Player(10);        //create instance player
+            maze[px, py] = playerObj;              //place player in maze
+            Player = playerObj;                    //assign Maze.Player property to instance
+            Player.PlayerLocation = (px, py);      //set player location 
+
 
 
             for (int m = 0; m < monsterCnt; m++)
             {
                 var (mx, my) = FindEmptyCell();
-                maze[mx, my] = new Monster(10);  //place monster
+                var MonstObj = new Monster(10);  //create instance monster
+                maze[mx, my] = MonstObj;  //place monster
+                Monster.MonsterLocations.Add((mx, my)); //add monster location to list
+
             }
 
 
             for (int k = 0; k < itemCnt; k++)
             {
                 var (ix, iy) = FindEmptyCell();
+                var PotionObj = new Items.Potion();  //create instance potion
                 maze[ix, iy] = new Items.Potion();
+                Items.Potion.PotionLocations.Add((ix, iy)); //add potion to location list
             }
 
             for (int w = 0; w < itemCnt; w++)
             {
                 var (ix, iy) = FindEmptyCell();
+                var WeaponObj = new Items.Weapon();  //create instance weapon
                 maze[ix, iy] = new Items.Weapon();
+                Items.Weapon.WeaponLocations.Add((ix, iy)); //add weapon to location list
+            }
+
+            for (int g = 0; g < wallCnt; g++)
+            {
+                var (ix, iy) = FindEmptyCell();
+                maze[ix, iy] = wall;
             }
 
             for (int e = 0; e < 1; e++)
@@ -78,6 +94,43 @@ namespace AdventureGame.core
                 maze[ex, ey] = exit;
             }
 
+        }
+
+        public void ReloadMaze()
+        {
+            //load the maze again with each movement with updated player position and interactions, but same monster/item locations
+                for (int i = 0; i < 10; i++)
+                {
+                    for (int j = 0; j < 10; j++)
+                    {
+                        if (maze[i, j] is string) //keep walls and exit
+                        {
+                            continue;
+                        }
+                        else if (maze[i, j] is Player) //update player position
+                        {
+                            maze[i, j] = null; //clear old position
+                            var (px, py) = Player.PlayerLocation;
+                            maze[px, py] = Player; //place player in new position
+                        }
+                        else if (maze[i, j] is Monster) //keep monsters in same place
+                        {
+                            continue;
+                        }
+                        else if (maze[i, j] is Items.Potion) //keep potions in same place
+                        {
+                            continue;
+                        }
+                        else if (maze[i, j] is Items.Weapon) //keep weapons in same place
+                        {
+                            continue;
+                        }
+                        else
+                        {
+                            maze[i, j] = null; //clear empty cells
+                        }
+                    }
+            }
         }
 
         private (int, int) FindEmptyCell()
@@ -149,7 +202,7 @@ namespace AdventureGame.core
                     }
                 }
                 if (px != -1) break;
-            }
+            }  //I might not need this, sonce location is stored, but keep as backup
         
          //get movement input from player and move them accordingly in console
 

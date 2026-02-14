@@ -64,6 +64,9 @@
     {
         public int Health { get; set; } = 40;
         public int Atk { get; set; } = 10;
+        public static object MonsterLocation { get; internal set; }
+        new public static List<object> MonsterLocations = new List<object>(); //keep track of monster locations, make this a static list and add to it as monsters are generated
+
         public Monster(int atk) : base()
         {
             this.Health = 40;

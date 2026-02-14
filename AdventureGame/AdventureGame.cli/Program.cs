@@ -71,19 +71,24 @@ void Combat(Player player, Monster monster)
     switch (input.ToLower())
     {
         case "w":
-            maze.MovePlayer(player, -1, 0); //up
+            maze.MovePlayer(player, -1, 0);//up
+            player.PlayerLocation = (player.PlayerLocation.Item1 - 1, player.PlayerLocation.Item2);
             break;
         case "s":
             maze.MovePlayer(player, 1, 0); //down
+            player.PlayerLocation = (player.PlayerLocation.Item1 + 1, player.PlayerLocation.Item2);
             break;
         case "a":
             maze.MovePlayer(player, 0, -1); //left
+            player.PlayerLocation = (player.PlayerLocation.Item1, player.PlayerLocation.Item2 -1);
             break;
         case "d":
-            maze.MovePlayer(player, 0, 1); //right
+            maze.MovePlayer(player, 0, 1); //right  //do i even need this line?
+            player.PlayerLocation = (player.PlayerLocation.Item1, player.PlayerLocation.Item2 +1);
             break;
         default:
             Console.WriteLine("Invalid input! Use W/A/S/D to move.");
             break;
     }
+    //register the input as an output to update the player's location accordingly
 }

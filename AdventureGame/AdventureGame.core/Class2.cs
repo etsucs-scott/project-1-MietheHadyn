@@ -22,6 +22,10 @@ namespace AdventureGame.core
             {
                 return $"p";
             }
+
+            public static object PotionLocation { get; internal set; }
+            new public static List<object> PotionLocations = new List<object>(); //keep track of potions
+
         }
         public class Weapon : Items
         {
@@ -35,6 +39,9 @@ namespace AdventureGame.core
             {
                 return $"t";
             }
+
+            public static object WeaponLocation { get; internal set; }
+            new public static List<object> WeaponLocations = new List<object>(); //keep track of weapons
         }
     }
 }
