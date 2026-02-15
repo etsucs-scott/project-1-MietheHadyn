@@ -30,6 +30,7 @@
         }
 
         public (int, int) PlayerLocation { get; set; }
+        public (int, int) NewLocation { get; set; }
 
         public void Attack(ICharacter target)
         {

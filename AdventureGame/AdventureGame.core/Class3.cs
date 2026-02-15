@@ -8,7 +8,7 @@ namespace AdventureGame.core
     {
         public object[,] maze { get; set; }
         public string wall = "#";
-        public string exit = "@";
+        public Char exit = '@';
 
         private Random rand = new Random();
         public Maze()
@@ -185,43 +185,7 @@ namespace AdventureGame.core
         }
 
 
-
-        public void MovePlayer(Player player, int dx, int dy)
-        {
-            //find player position
-            int px = -1, py = -1;
-            for (int i = 0; i < 10; i++)
-            {
-                for (int j = 0; j < 10; j++)
-                {
-                    if (maze[i, j] is Player)
-                    {
-                        px = i;
-                        py = j;
-                        break;
-                    }
-                }
-                if (px != -1) break;
-            }  //I might not need this, sonce location is stored, but keep as backup
+       
         
-         //get movement input from player and move them accordingly in console
-
-        
-
-            int newX = px + dx;
-            int newY = py + dy;
-
-            //check bounds and walls
-            if (newX < 0 || newX >= 10 || newY < 0 || newY >= 10 || maze[newX, newY] is string)
-            {
-                Console.WriteLine("Cannot move there!");
-                return;
-            }
-            //move player
-            maze[px, py] = null; //clear old position
-            maze[newX, newY] = player; //move to new position
-
-            //check for interactions
-        }
     }
 }

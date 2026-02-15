@@ -4,25 +4,52 @@
 
 
 
-Maze mazeInstance = new Maze();
-mazeInstance.MazeGenerator();
-mazeInstance.placeThings();
-Console.WriteLine(mazeInstance);
+ActivePlay();
 
-//mazeInstance.MovePlayer();
-void Main(string[] args)
+
+void Start()
 {
     //intro text/lore??
 
-    
+    Maze mazeInstance = new Maze();
+    mazeInstance.MazeGenerator();
+    mazeInstance.placeThings();
+    Console.WriteLine(mazeInstance); //this and prev 3 lines create maze first
+
+
+}
+
+void ActivePlay()
+{
+    //main game loop, call start and then handle input until player wins/loses
+    Maze mazeInstance = new Maze();
+    mazeInstance.MazeGenerator();
+    mazeInstance.placeThings();
+    Console.WriteLine(mazeInstance);
+    while (mazeInstance.Player.Health > 0)
+    {
+        MovePlayer(mazeInstance.Player, Console.ReadLine(), mazeInstance);
+        Interact(mazeInstance.Player, mazeInstance);
+        Console.WriteLine(mazeInstance);
+
+    }
+
 }
 //write a method for the turn based combat system with a while loop that continues until either the player or monster's health reaches 0
-void Combat(Player player, Monster monster)
+static void Combat(Player player, Monster monster)
 {
     Console.WriteLine("COMBAT START!!");
+
+    //monster turn
+    Console.WriteLine("---Monster turn: ");
+    monster.Attack(player);
+    Console.WriteLine($"Monster attacks for {monster.Atk}!");
+    Console.WriteLine($"Player health is now at {player.Health}");
+
     //player turn
-        while (player.Health > 0 && monster.Health > 0)
-    { Console.WriteLine("---Player Turn: (1)Attack or (2)Heal?");
+    while (player.Health > 0 && monster.Health > 0)
+    {
+        Console.WriteLine("---Player Turn: (1)Attack or (2)Heal?");
         string InputStr = Console.ReadLine();
         if (!int.TryParse(InputStr, out int Input))
         {
@@ -54,41 +81,99 @@ void Combat(Player player, Monster monster)
             Console.WriteLine("Monster defeated! You win!");
             //break;
         }
-        
-        //monster turn
-        Console.WriteLine("---Monster turn: ");
-        monster.Attack(player);
-        Console.WriteLine($"Monster attacks for {monster.Atk}!");
-        Console.WriteLine($"Player health is now at {player.Health}");
-        }
+
+       
+    }
 
 
-    
+
 }
 
- void HandleInput(Player player, string input, Maze maze)
+void MovePlayer(Player player, string input, Maze maze)
 {
     switch (input.ToLower())
     {
         case "w":
-            maze.MovePlayer(player, -1, 0);//up
-            player.PlayerLocation = (player.PlayerLocation.Item1 - 1, player.PlayerLocation.Item2);
+            player.NewLocation = (player.PlayerLocation.Item1 - 1, player.PlayerLocation.Item2); //up
             break;
         case "s":
-            maze.MovePlayer(player, 1, 0); //down
-            player.PlayerLocation = (player.PlayerLocation.Item1 + 1, player.PlayerLocation.Item2);
+            player.NewLocation = (player.PlayerLocation.Item1 + 1, player.PlayerLocation.Item2); //down
             break;
         case "a":
-            maze.MovePlayer(player, 0, -1); //left
-            player.PlayerLocation = (player.PlayerLocation.Item1, player.PlayerLocation.Item2 -1);
+            player.NewLocation = (player.PlayerLocation.Item1, player.PlayerLocation.Item2 - 1); //left
             break;
         case "d":
-            maze.MovePlayer(player, 0, 1); //right  //do i even need this line?
-            player.PlayerLocation = (player.PlayerLocation.Item1, player.PlayerLocation.Item2 +1);
+            player.NewLocation = (player.PlayerLocation.Item1, player.PlayerLocation.Item2 + 1); //right
             break;
         default:
             Console.WriteLine("Invalid input! Use W/A/S/D to move.");
-            break;
+            return;
     }
-    //register the input as an output to update the player's location accordingly
+
+    // Check bounds and walls
+    int newX = player.NewLocation.Item1;
+    int newY = player.NewLocation.Item2;
+    int px = player.PlayerLocation.Item1;
+    int py = player.PlayerLocation.Item2;
+
+    if (newX < 0 || newX >= 10 || newY < 0 || newY >= 10 || maze.maze[newX, newY] is string)
+    {
+        Console.WriteLine("Cannot move there!");
+        return;
+    }
+
+    
+   
+    maze.maze[px, py] = null; // clear old position ; don't override monster/potion/weapon/exit
+    player.PlayerLocation = (newX, newY);
+}
+
+void Interact(Player player, Maze maze)
+{
+    var (px, py) = player.PlayerLocation;
+    var tile = maze.maze[px, py];
+
+    //Monster
+    if (tile is Monster monster)
+    {
+        Combat(player, monster);
+
+        //If player win
+        if (monster.Health <= 0 && player.Health > 0)
+        {
+            maze.maze[px, py] = player;
+        }
+        
+        return;
+    }
+
+    //Potion
+    if (tile is Items.Potion)
+    {
+        player.Heal();
+        maze.maze[px, py] = player; 
+        return;
+    }
+
+    // Weapon
+    if (tile is Items.Weapon weapon)
+    {
+        weapon.Use(player);
+        maze.maze[px, py] = player; 
+        return;
+    }
+
+    // Exit (string tile)
+    if (tile is char exit)
+    {
+        Console.WriteLine("Congratulations! You win!");
+        Environment.Exit(0);
+        return;
+    }
+
+    //Empty/other tile: place player
+    if (tile == null)
+    {
+        maze.maze[px, py] = player;
+    }
 }
