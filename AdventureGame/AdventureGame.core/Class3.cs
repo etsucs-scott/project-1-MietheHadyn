@@ -184,8 +184,5 @@ namespace AdventureGame.core
             return sb.ToString();
         }
 
-
-       
-        
     }
 }

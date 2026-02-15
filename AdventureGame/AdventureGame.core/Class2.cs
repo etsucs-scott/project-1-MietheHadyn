@@ -31,7 +31,7 @@ namespace AdventureGame.core
         {
             public override void Use(Player player) //use upon contact
             {
-                player.Atk *=5;
+                player.Atk *= 2;
                 Console.WriteLine("Player picked up a new weapon. Your attack has increased!");
             }
 

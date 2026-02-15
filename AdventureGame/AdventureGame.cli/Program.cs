@@ -3,21 +3,8 @@
 // See https://aka.ms/new-console-template for more information
 
 
-
 ActivePlay();
 
-
-void Start()
-{
-    //intro text/lore??
-
-    Maze mazeInstance = new Maze();
-    mazeInstance.MazeGenerator();
-    mazeInstance.placeThings();
-    Console.WriteLine(mazeInstance); //this and prev 3 lines create maze first
-
-
-}
 
 void ActivePlay()
 {
@@ -35,7 +22,7 @@ void ActivePlay()
     }
 
 }
-//write a method for the turn based combat system with a while loop that continues until either the player or monster's health reaches 0
+// turn combat with while loop continues until player/monster dies
 static void Combat(Player player, Monster monster)
 {
     Console.WriteLine("COMBAT START!!");
@@ -62,24 +49,24 @@ static void Combat(Player player, Monster monster)
             Console.WriteLine(value: $"Player attacks for {player.Atk}!");
             player.Attack(monster);
             Console.WriteLine($"Monster health is now at {monster.Health}");
-            //break;
+            
         }
         else if (Input == 2)
         {
             Console.WriteLine("Player heals for 20 health!");
             player.Heal();
-            //break;
+            
         }
         else
         {
             Console.WriteLine("Invalid input. Please enter 1 or 2.");
-            //continue;
+            
         }
 
         if (monster.Health <= 0)
         {
             Console.WriteLine("Monster defeated! You win!");
-            //break;
+            
         }
 
        
@@ -124,7 +111,7 @@ void MovePlayer(Player player, string input, Maze maze)
 
     
    
-    maze.maze[px, py] = null; // clear old position ; don't override monster/potion/weapon/exit
+    maze.maze[px, py] = null; //clear old position; don't override monster/potion/weapon/exit
     player.PlayerLocation = (newX, newY);
 }
 
@@ -155,7 +142,7 @@ void Interact(Player player, Maze maze)
         return;
     }
 
-    // Weapon
+    //Weapon
     if (tile is Items.Weapon weapon)
     {
         weapon.Use(player);
@@ -163,7 +150,7 @@ void Interact(Player player, Maze maze)
         return;
     }
 
-    // Exit (string tile)
+    //Exit
     if (tile is char exit)
     {
         Console.WriteLine("Congratulations! You win!");
@@ -171,7 +158,7 @@ void Interact(Player player, Maze maze)
         return;
     }
 
-    //Empty/other tile: place player
+    //Empty
     if (tile == null)
     {
         maze.maze[px, py] = player;
