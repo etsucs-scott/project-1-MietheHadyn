@@ -54,3 +54,4 @@ TestResult.xml
 nunit-*.xml
 /.vs
 /AdventureGame/.vs
+/CardGameWar/.vs/CardGameWar.slnx/FileContentIndex
