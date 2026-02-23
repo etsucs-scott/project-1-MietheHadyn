@@ -1,0 +1,155 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Hadyn--School\\source\\repos\\project-1-MietheHadyn\\CardGameWar\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{D9848B78-C418-0A31-CD5B-A101C1CC250C}|WarClassLibrary\\WarClassLibrary.csproj|c:\\users\\hadyn--school\\source\\repos\\project-1-miethehadyn\\cardgamewar\\warclasslibrary\\card.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D9848B78-C418-0A31-CD5B-A101C1CC250C}|WarClassLibrary\\WarClassLibrary.csproj|solutionrelative:warclasslibrary\\card.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D9848B78-C418-0A31-CD5B-A101C1CC250C}|WarClassLibrary\\WarClassLibrary.csproj|c:\\users\\hadyn--school\\source\\repos\\project-1-miethehadyn\\cardgamewar\\warclasslibrary\\hand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D9848B78-C418-0A31-CD5B-A101C1CC250C}|WarClassLibrary\\WarClassLibrary.csproj|solutionrelative:warclasslibrary\\hand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D9848B78-C418-0A31-CD5B-A101C1CC250C}|WarClassLibrary\\WarClassLibrary.csproj|c:\\users\\hadyn--school\\source\\repos\\project-1-miethehadyn\\cardgamewar\\warclasslibrary\\deck.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D9848B78-C418-0A31-CD5B-A101C1CC250C}|WarClassLibrary\\WarClassLibrary.csproj|solutionrelative:warclasslibrary\\deck.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D9848B78-C418-0A31-CD5B-A101C1CC250C}|WarClassLibrary\\WarClassLibrary.csproj|c:\\users\\hadyn--school\\source\\repos\\project-1-miethehadyn\\cardgamewar\\warclasslibrary\\playerhand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D9848B78-C418-0A31-CD5B-A101C1CC250C}|WarClassLibrary\\WarClassLibrary.csproj|solutionrelative:warclasslibrary\\playerhand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D9848B78-C418-0A31-CD5B-A101C1CC250C}|WarClassLibrary\\WarClassLibrary.csproj|c:\\users\\hadyn--school\\source\\repos\\project-1-miethehadyn\\cardgamewar\\warclasslibrary\\playedcards.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D9848B78-C418-0A31-CD5B-A101C1CC250C}|WarClassLibrary\\WarClassLibrary.csproj|solutionrelative:warclasslibrary\\playedcards.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D9848B78-C418-0A31-CD5B-A101C1CC250C}|WarClassLibrary\\WarClassLibrary.csproj|c:\\users\\hadyn--school\\source\\repos\\project-1-miethehadyn\\cardgamewar\\warclasslibrary\\suits.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D9848B78-C418-0A31-CD5B-A101C1CC250C}|WarClassLibrary\\WarClassLibrary.csproj|solutionrelative:warclasslibrary\\suits.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D9848B78-C418-0A31-CD5B-A101C1CC250C}|WarClassLibrary\\WarClassLibrary.csproj|c:\\users\\hadyn--school\\source\\repos\\project-1-miethehadyn\\cardgamewar\\warclasslibrary\\ranks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D9848B78-C418-0A31-CD5B-A101C1CC250C}|WarClassLibrary\\WarClassLibrary.csproj|solutionrelative:warclasslibrary\\ranks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1A598F1-14D2-8C1D-9C5D-072F37C0BCB8}|CardGameWar\\CardGameWar.csproj|c:\\users\\hadyn--school\\source\\repos\\project-1-miethehadyn\\cardgamewar\\cardgamewar\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1A598F1-14D2-8C1D-9C5D-072F37C0BCB8}|CardGameWar\\CardGameWar.csproj|solutionrelative:cardgamewar\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Suits.cs",
+              "DocumentMoniker": "C:\\Users\\Hadyn--School\\source\\repos\\project-1-MietheHadyn\\CardGameWar\\WarClassLibrary\\Suits.cs",
+              "RelativeDocumentMoniker": "WarClassLibrary\\Suits.cs",
+              "ToolTip": "C:\\Users\\Hadyn--School\\source\\repos\\project-1-MietheHadyn\\CardGameWar\\WarClassLibrary\\Suits.cs",
+              "RelativeToolTip": "WarClassLibrary\\Suits.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-18T21:06:42.318Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Ranks.cs",
+              "DocumentMoniker": "C:\\Users\\Hadyn--School\\source\\repos\\project-1-MietheHadyn\\CardGameWar\\WarClassLibrary\\Ranks.cs",
+              "RelativeDocumentMoniker": "WarClassLibrary\\Ranks.cs",
+              "ToolTip": "C:\\Users\\Hadyn--School\\source\\repos\\project-1-MietheHadyn\\CardGameWar\\WarClassLibrary\\Ranks.cs",
+              "RelativeToolTip": "WarClassLibrary\\Ranks.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAABFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-18T21:06:26.925Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PlayedCards.cs",
+              "DocumentMoniker": "C:\\Users\\Hadyn--School\\source\\repos\\project-1-MietheHadyn\\CardGameWar\\WarClassLibrary\\PlayedCards.cs",
+              "RelativeDocumentMoniker": "WarClassLibrary\\PlayedCards.cs",
+              "ToolTip": "C:\\Users\\Hadyn--School\\source\\repos\\project-1-MietheHadyn\\CardGameWar\\WarClassLibrary\\PlayedCards.cs",
+              "RelativeToolTip": "WarClassLibrary\\PlayedCards.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAABzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-18T21:03:55.589Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PlayerHand.cs",
+              "DocumentMoniker": "C:\\Users\\Hadyn--School\\source\\repos\\project-1-MietheHadyn\\CardGameWar\\WarClassLibrary\\PlayerHand.cs",
+              "RelativeDocumentMoniker": "WarClassLibrary\\PlayerHand.cs",
+              "ToolTip": "C:\\Users\\Hadyn--School\\source\\repos\\project-1-MietheHadyn\\CardGameWar\\WarClassLibrary\\PlayerHand.cs",
+              "RelativeToolTip": "WarClassLibrary\\PlayerHand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-18T21:03:20.539Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Deck.cs",
+              "DocumentMoniker": "C:\\Users\\Hadyn--School\\source\\repos\\project-1-MietheHadyn\\CardGameWar\\WarClassLibrary\\Deck.cs",
+              "RelativeDocumentMoniker": "WarClassLibrary\\Deck.cs",
+              "ToolTip": "C:\\Users\\Hadyn--School\\source\\repos\\project-1-MietheHadyn\\CardGameWar\\WarClassLibrary\\Deck.cs",
+              "RelativeToolTip": "WarClassLibrary\\Deck.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-18T21:02:40.514Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Hand.cs",
+              "DocumentMoniker": "C:\\Users\\Hadyn--School\\source\\repos\\project-1-MietheHadyn\\CardGameWar\\WarClassLibrary\\Hand.cs",
+              "RelativeDocumentMoniker": "WarClassLibrary\\Hand.cs",
+              "ToolTip": "C:\\Users\\Hadyn--School\\source\\repos\\project-1-MietheHadyn\\CardGameWar\\WarClassLibrary\\Hand.cs",
+              "RelativeToolTip": "WarClassLibrary\\Hand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-18T21:01:39.458Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Card.cs",
+              "DocumentMoniker": "C:\\Users\\Hadyn--School\\source\\repos\\project-1-MietheHadyn\\CardGameWar\\WarClassLibrary\\Card.cs",
+              "RelativeDocumentMoniker": "WarClassLibrary\\Card.cs",
+              "ToolTip": "C:\\Users\\Hadyn--School\\source\\repos\\project-1-MietheHadyn\\CardGameWar\\WarClassLibrary\\Card.cs",
+              "RelativeToolTip": "WarClassLibrary\\Card.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAwAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-18T20:58:07.159Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Hadyn--School\\source\\repos\\project-1-MietheHadyn\\CardGameWar\\CardGameWar\\Program.cs",
+              "RelativeDocumentMoniker": "CardGameWar\\Program.cs",
+              "ToolTip": "C:\\Users\\Hadyn--School\\source\\repos\\project-1-MietheHadyn\\CardGameWar\\CardGameWar\\Program.cs",
+              "RelativeToolTip": "CardGameWar\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-18T20:44:02.976Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

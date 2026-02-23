@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="CardGameWar/CardGameWar.csproj" />
+  <Project Path="WarClassLibrary/WarClassLibrary.csproj" />
+</Solution>
